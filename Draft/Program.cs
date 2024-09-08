@@ -2,40 +2,49 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            /// <summary>
-            /// If it exceeds 160C we need to event the cooling system.
-            /// </summary>
-            public bool IsNougatTooHot() {
-                int temp = CandyBarMaker.CheckNougatTemperature();
-                if (temp > 160)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            ///<summary>
-            /// Perform the Candy Isolation Cooling System (CICS) vent procedure.
-            /// </summary>
-            public void DoCICSVentProcedures() {                
-                TurbineController turbines = new TurbineConroller();
-                turbines.CloseTripValce(2);                
-                IsolationCoolingSystem.Fill();
-                IsolationCoolingSytem.Vent();                
-                Maker.CheckAirSystem();             
-            }
-            public void ThreeMinuteCheck()
+            Pizzazz foxtrot = new Pizzazz() { Zippo = 2 };
+            foxtrot.Bamboo(foxtrot.Zippo);
+
+            Pizzazz november = new Pizzazz() { Zippo = 3 };
+            Abracadabra tango = new Abracadabra() { Vavavoom = 4 };
+
+            while (tango.Lala(november.Zippo))
             {
-                if (IsNougatTooHot() == true)
-                {
-                    DoCICSVentProcedure();
-                }
+                november.Zippo *= -1;
+                november.Bamboo(tango.Vavavoom);
+                foxtrot.Bamboo(november.Zippo);
+                tango.Vavavoom -= foxtrot.Zippo;
             }
 
+            Console.WriteLine("november.Zippo = " + november.Zippo);
+            Console.WriteLine("foxtrot.Zippo = " + foxtrot.Zippo);
+            Console.WriteLine("tango.Vavavoom = " + tango.Vavavoom);
+
+
+        }
+    }
+    class Pizzazz
+    {
+        public int Zippo;
+        public void Bamboo(int eek)
+        {
+            Zippo += eek;
+        }
+    }
+    class Abracadabra
+    {
+        public int Vavavoom;
+
+        public bool Lala(int floq)
+        {
+            if (floq < Vavavoom)
+            {
+                Vavavoom += floq;
+                return true;
+            }
+            return false;
         }
     }
 }
