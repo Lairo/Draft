@@ -4,47 +4,31 @@
     {
         static void Main()
         {
-            Pizzazz foxtrot = new Pizzazz() { Zippo = 2 };
-            foxtrot.Bamboo(foxtrot.Zippo);
-
-            Pizzazz november = new Pizzazz() { Zippo = 3 };
-            Abracadabra tango = new Abracadabra() { Vavavoom = 4 };
-
-            while (tango.Lala(november.Zippo))
+            int keyA;
+            int keyB;
+            while (true)
             {
-                november.Zippo *= -1;
-                november.Bamboo(tango.Vavavoom);
-                foxtrot.Bamboo(november.Zippo);
-                tango.Vavavoom -= foxtrot.Zippo;
+                Console.Write($"Write 1st number to add to another: ");
+                string inputA = Console.ReadLine();
+                while (!int.TryParse(inputA, out keyA))
+                {
+                    Console.WriteLine("an integer please");
+                }
+
+                Console.Write($"Write 2st number to add : ");
+                string inputB = Console.ReadLine();
+                while (!int.TryParse(inputB, out keyB))
+                {
+                    Console.WriteLine("an integer please");
+                }
+                
+                Console.WriteLine($"{inputA} + {inputB} = {Addition(keyA, keyB)}");
             }
-
-            Console.WriteLine("november.Zippo = " + november.Zippo);
-            Console.WriteLine("foxtrot.Zippo = " + foxtrot.Zippo);
-            Console.WriteLine("tango.Vavavoom = " + tango.Vavavoom);
-
-
-        }
-    }
-    class Pizzazz
-    {
-        public int Zippo;
-        public void Bamboo(int eek)
-        {
-            Zippo += eek;
-        }
-    }
-    class Abracadabra
-    {
-        public int Vavavoom;
-
-        public bool Lala(int floq)
-        {
-            if (floq < Vavavoom)
+            int Addition(int e, int f)
             {
-                Vavavoom += floq;
-                return true;
+                
+                return e + f;
             }
-            return false;
         }
     }
 }
